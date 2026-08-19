@@ -124,7 +124,7 @@
            class="{{ request()->routeIs('admin.commodities.*') ? 'active' : '' }}">
             <i class="bi bi-boxes"></i> Commodities
         </a>
-        <a href="#" class="{{ request()->routeIs('admin.prices.*') ? 'active' : '' }}">
+        <a href="{{ route('admin.prices.index') }}" class="{{ request()->routeIs('admin.prices.*') ? 'active' : '' }}">
             <i class="bi bi-tags"></i> Daily Prices
         </a>
 

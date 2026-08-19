@@ -36,7 +36,9 @@
                 <i class="bi bi-tags fs-1 opacity-50"></i>
             </div>
             <div class="card-footer bg-transparent border-0 pt-0">
-                <span class="text-white small">As of {{ now()->format('d M Y') }}</span>
+                <a href="{{ route('admin.prices.index') }}" class="text-white text-decoration-none small">
+                    View &rarr;
+                </a>
             </div>
         </div>
     </div>
@@ -83,7 +85,7 @@
                 <a href="{{ route('admin.commodities.create') }}" class="btn btn-primary btn-sm">
                     <i class="bi bi-plus-circle me-1"></i> Add Commodity
                 </a>
-                <a href="#" class="btn btn-outline-primary btn-sm">
+                <a href="{{ route('admin.prices.index') }}" class="btn btn-outline-primary btn-sm">
                     <i class="bi bi-pencil-square me-1"></i> Publish Prices
                 </a>
                 <a href="#" class="btn btn-outline-secondary btn-sm">

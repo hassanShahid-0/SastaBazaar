@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CommodityController;
+use App\Http\Controllers\Admin\PriceController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,4 +26,6 @@ require __DIR__.'/auth.php';
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('commodities', CommodityController::class);
+    Route::get('prices', [PriceController::class, 'index'])->name('prices.index');
+    Route::post('prices', [PriceController::class, 'store'])->name('prices.store');
 });

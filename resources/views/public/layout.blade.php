@@ -104,11 +104,11 @@
 </head>
 <body>
 
-<!-- ════ Navbar ════ -->
+<!-- â•â•â•â• Navbar â•â•â•â• -->
 <nav class="navbar navbar-expand-lg navbar-public">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-primary" href="{{ route('home') }}">
-            <span class="fs-3">🛒</span>
+            <span class="fs-3">ðŸ›’</span>
             <span class="fs-4 tracking-tight">Sasta<span class="text-dark-emphasis">Bazaar</span></span>
         </a>
 
@@ -155,15 +155,15 @@
     </div>
 </nav>
 
-<!-- ════ Page Body ════ -->
+<!-- â•â•â•â• Page Body â•â•â•â• -->
 @yield('content')
 
-<!-- ════ Footer ════ -->
+<!-- â•â•â•â• Footer â•â•â•â• -->
 <footer class="footer-public">
     <div class="container text-center text-md-start">
         <div class="row g-4">
             <div class="col-md-6">
-                <h5 class="text-white fw-bold mb-2">🛒 SastaBazaar Portal</h5>
+                <h5 class="text-white fw-bold mb-2">ðŸ›’ SastaBazaar Portal</h5>
                 <p class="small mb-3">
                     Official daily commodity price monitoring portal by District Administration. Ensuring fair prices for essential groceries across local markets.
                 </p>
@@ -175,7 +175,7 @@
                 <h6 class="text-white fw-semibold mb-3">Quick Links</h6>
                 <ul class="list-unstyled small d-flex flex-column gap-2">
                     <li><a href="{{ route('home') }}">Daily Price List</a></li>
-                    <li><a href="#">Register Complaint</a></li>
+                    <li><a href="{{ route('complaint.create') }}">Register Complaint</a></li>
                     <li><a href="{{ route('login') }}">District Officer Login</a></li>
                 </ul>
             </div>

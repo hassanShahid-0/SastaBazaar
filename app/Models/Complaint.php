@@ -15,6 +15,21 @@ class Complaint extends Model
         'shop_name',
         'location_address',
         'description',
+        'photo_path',
         'status',
     ];
+
+    protected $casts = [
+        'created_at' => 'datetime',
+    ];
+
+    public function isPending(): bool
+    {
+        return $this->status === 'Pending';
+    }
+
+    public function isResolved(): bool
+    {
+        return $this->status === 'Resolved';
+    }
 }

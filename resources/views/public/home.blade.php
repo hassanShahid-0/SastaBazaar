@@ -13,7 +13,7 @@
     }
 }">
 
-    <!-- ════ Hero Section ════ -->
+    <!-- â•â•â•â• Hero Section â•â•â•â• -->
     <section class="hero-banner">
         <div class="container text-center position-relative z-1" data-aos="fade-down">
             <span class="badge bg-white bg-opacity-20 text-white border border-white border-opacity-25 px-3 py-2 rounded-pill mb-3">
@@ -34,7 +34,7 @@
                                     <span class="input-group-text bg-transparent border-0 text-muted fs-5"><i class="bi bi-search"></i></span>
                                     <input type="text" class="form-control border-0 shadow-none ps-0"
                                            x-model="search"
-                                           placeholder="Search items (e.g. Sugar, Flour, چینی)...">
+                                           placeholder="Search items (e.g. Sugar, Flour, Ú†ÛŒÙ†ÛŒ)...">
                                     <button class="btn text-muted" x-show="search" @click="search = ''" type="button">
                                         <i class="bi bi-x-lg"></i>
                                     </button>
@@ -53,7 +53,7 @@
         </div>
     </section>
 
-    <!-- ════ Main Section ════ -->
+    <!-- â•â•â•â• Main Section â•â•â•â• -->
     <section class="py-5 bg-body-tertiary">
         <div class="container">
 
@@ -89,7 +89,7 @@
                 </div>
             </div>
 
-            <!-- ════ TABLE VIEW ════ -->
+            <!-- â•â•â•â• TABLE VIEW â•â•â•â• -->
             <div x-show="viewMode === 'table'" class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4" data-aos="fade-up">
                 <div class="card-body p-0">
                     <div class="table-responsive">
@@ -98,7 +98,7 @@
                                 <tr>
                                     <th class="ps-4 py-3">#</th>
                                     <th class="py-3">Commodity Name</th>
-                                    <th class="py-3 font-urdu">نام (Urdu)</th>
+                                    <th class="py-3 font-urdu">Ù†Ø§Ù… (Urdu)</th>
                                     <th class="py-3">Unit</th>
                                     <th class="py-3 text-end">Official Price (PKR)</th>
                                     <th class="py-3 text-center pe-4">Action</th>
@@ -119,7 +119,7 @@
                                             <span class="fw-bold text-dark-emphasis">{{ $commodity->name }}</span>
                                         </td>
                                         <td class="font-urdu fs-5 text-secondary">
-                                            {{ $commodity->urdu_name ?? '—' }}
+                                            {{ $commodity->urdu_name ?? 'â€”' }}
                                         </td>
                                         <td>
                                             <span class="badge bg-secondary bg-opacity-10 text-secondary border border-secondary border-opacity-25 px-2.5 py-1">
@@ -135,8 +135,7 @@
                                             @endif
                                         </td>
                                         <td class="text-center pe-4">
-                                            <a href="#"
-                                               class="btn btn-sm btn-outline-danger rounded-pill px-3"
+                                            <a href="{{ route('complaint.create') }}" class="btn btn-sm btn-outline-danger rounded-pill px-3"
                                                title="Report overcharging for {{ $commodity->name }}">
                                                 <i class="bi bi-flag me-1"></i> Report
                                             </a>
@@ -156,7 +155,7 @@
                 </div>
             </div>
 
-            <!-- ════ CARDS GRID VIEW ════ -->
+            <!-- â•â•â•â• CARDS GRID VIEW â•â•â•â• -->
             <div x-show="viewMode === 'cards'" class="row g-3 mb-4" x-cloak>
                 @foreach($commodities as $commodity)
                     @php
@@ -188,7 +187,7 @@
                                         <span class="badge bg-warning bg-opacity-10 text-warning">Unpriced</span>
                                     @endif
                                 </div>
-                                <a href="#" class="btn btn-sm btn-outline-danger rounded-circle p-2"
+                                <a href="{{ route('complaint.create') }}" class="btn btn-sm btn-outline-danger rounded-circle p-2"
                                    title="Report overcharging for {{ $commodity->name }}">
                                     <i class="bi bi-flag-fill"></i>
                                 </a>
@@ -208,7 +207,7 @@
                         </p>
                     </div>
                     <div class="col-md-4 text-md-end">
-                        <a href="#" class="btn btn-danger rounded-pill px-4 shadow-sm">
+                        <a href="{{ route('complaint.create') }}" class="btn btn-danger rounded-pill px-4 shadow-sm">
                             <i class="bi bi-megaphone me-1"></i> File a Complaint
                         </a>
                     </div>

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('commodities', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('urdu_name');
-            $table->string('unit'); // e.g., Kg, Litre, Dozen, 100g
+            $table->string('name')->unique();
+            $table->string('urdu_name')->nullable();
+            $table->string('unit'); // e.g., kg, litre, dozen
             $table->timestamps();
         });
     }

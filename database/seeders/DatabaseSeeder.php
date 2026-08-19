@@ -2,15 +2,23 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
+        User::firstOrCreate(
+            ['email' => 'admin@sastabazaar.pk'],
+            [
+                'name'     => 'District Admin',
+                'password' => Hash::make('admin1234'),
+                'is_admin' => true,
+            ]
+        );
+
         $this->call([
             CommoditySeeder::class,
         ]);

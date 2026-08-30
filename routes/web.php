@@ -12,8 +12,7 @@ use Illuminate\Support\Facades\Route;
 // ── Public Routes ──
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/complaint', [ComplaintController::class, 'create'])->name('complaint.create');
-Route::post('/complaint', [ComplaintController::class, 'store'])->name('complaint.store');
-
+Route::post('/complaint', [ComplaintController::class, 'store'])->middleware('throttle:5,1')->name('complaint.store');
 Route::get('/dashboard', function () {
     if (auth()->user()?->is_admin) {
         return redirect()->route('admin.dashboard');

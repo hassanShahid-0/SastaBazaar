@@ -13,7 +13,7 @@ class DashboardController extends Controller
         $commoditiesCount  = Commodity::count();
         $pricesTodayCount  = DailyPrice::whereDate('active_date', today())->count();
         $complaintsCount   = \App\Models\Complaint::count();
-        $pendingComplaints = \App\Models\Complaint::where('status', 'pending')->count();
+        $pendingComplaints = \App\Models\Complaint::where('status', 'Pending')->count();
         $latestUpdate      = DailyPrice::latest()->value('updated_at');
 
         return view('admin.dashboard', compact(

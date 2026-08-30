@@ -45,7 +45,7 @@ class ComplaintController extends Controller
         $complaint->save();
 
         return redirect()->back()
-            ->with('success', "Complaint #{{ $complaint->id }} marked as {$complaint->status}.");
+            ->with('success', "Complaint # {$complaint->id}  marked as {$complaint->status}.");
     }
 
     public function destroy(Complaint $complaint)

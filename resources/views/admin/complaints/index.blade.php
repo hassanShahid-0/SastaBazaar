@@ -81,11 +81,11 @@
                         <td class="text-muted small" style="max-width:180px;">{{ Str::limit($complaint->location_address, 50) }}</td>
                         <td>
                             @if($complaint->isPending())
-                                <span class="badge bg-danger bg-opacity-15 text-danger border border-danger border-opacity-25 px-2 py-1">
+                                <span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25 px-2 py-1">
                                     <i class="bi bi-clock me-1"></i>Pending
                                 </span>
                             @else
-                                <span class="badge bg-success bg-opacity-15 text-success border border-success border-opacity-25 px-2 py-1">
+                                <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 px-2 py-1">
                                     <i class="bi bi-check2 me-1"></i>Resolved
                                 </span>
                             @endif

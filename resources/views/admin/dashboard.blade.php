@@ -9,7 +9,7 @@
     {{-- Metric cards --}}
     <div class="col-sm-6 col-xl-3" data-aos="fade-up" data-aos-delay="0">
         <div class="card metric-card text-white h-100"
-             style="background: linear-gradient(135deg,#4f46e5,#7c3aed);">
+            style="background: linear-gradient(135deg,#4f46e5,#7c3aed);">
             <div class="card-body d-flex justify-content-between align-items-center">
                 <div>
                     <p class="mb-1 opacity-75 small">Total Commodities</p>
@@ -27,7 +27,7 @@
 
     <div class="col-sm-6 col-xl-3" data-aos="fade-up" data-aos-delay="100">
         <div class="card metric-card text-white h-100"
-             style="background: linear-gradient(135deg,#0891b2,#06b6d4);">
+            style="background: linear-gradient(135deg,#0891b2,#06b6d4);">
             <div class="card-body d-flex justify-content-between align-items-center">
                 <div>
                     <p class="mb-1 opacity-75 small">Prices Published Today</p>
@@ -45,7 +45,7 @@
 
     <div class="col-sm-6 col-xl-3" data-aos="fade-up" data-aos-delay="200">
         <div class="card metric-card text-white h-100"
-             style="background: linear-gradient(135deg,#059669,#10b981);">
+            style="background: linear-gradient(135deg,#059669,#10b981);">
             <div class="card-body d-flex justify-content-between align-items-center">
                 <div>
                     <p class="mb-1 opacity-75 small">Total Complaints</p>
@@ -81,16 +81,27 @@
             <div class="card-header bg-transparent border-0 pt-3">
                 <h6 class="fw-semibold mb-0"><i class="bi bi-lightning-charge me-2 text-primary"></i>Quick Actions</h6>
             </div>
-            <div class="card-body d-flex gap-2 flex-wrap">
-                <a href="{{ route('admin.commodities.create') }}" class="btn btn-primary btn-sm">
-                    <i class="bi bi-plus-circle me-1"></i> Add Commodity
-                </a>
-                <a href="{{ route('admin.prices.index') }}" class="btn btn-outline-primary btn-sm">
-                    <i class="bi bi-pencil-square me-1"></i> Publish Prices
-                </a>
-                <a href="#" class="btn btn-outline-secondary btn-sm">
-                    <i class="bi bi-envelope me-1"></i> View Complaints
-                </a>
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-4">
+                        <a href="{{ route('admin.commodities.create') }}" class="d-block text-decoration-none p-3 rounded-4 text-center h-100" style="background-color: #eef2ff; border: 1px solid #c7d2fe;">
+                            <i class="bi bi-plus-circle fs-3 d-block mb-2" style="color: #4f46e5;"></i>
+                            <span class="fw-semibold" style="color: #4338ca;">Add Commodity</span>
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <a href="{{ route('admin.prices.index') }}" class="d-block text-decoration-none p-3 rounded-4 text-center h-100" style="background-color: #ecfdf5; border: 1px solid #a7f3d0;">
+                            <i class="bi bi-pencil-square fs-3 d-block mb-2" style="color: #059669;"></i>
+                            <span class="fw-semibold" style="color: #047857;">Publish Prices</span>
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <a href="{{ route('admin.complaints.index') }}" class="d-block text-decoration-none p-3 rounded-4 text-center h-100" style="background-color: #fef2f2; border: 1px solid #fecaca;">
+                            <i class="bi bi-envelope fs-3 d-block mb-2" style="color: #dc2626;"></i>
+                            <span class="fw-semibold" style="color: #b91c1c;">View Complaints</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -101,10 +112,22 @@
             </div>
             <div class="card-body">
                 <table class="table table-sm table-borderless mb-0">
-                    <tr><td class="text-muted">App</td><td>SastaBazaar v1.0</td></tr>
-                    <tr><td class="text-muted">Laravel</td><td>{{ app()->version() }}</td></tr>
-                    <tr><td class="text-muted">PHP</td><td>{{ PHP_VERSION }}</td></tr>
-                    <tr><td class="text-muted">Logged in</td><td>{{ auth()->user()->name }}</td></tr>
+                    <tr>
+                        <td class="text-muted">App</td>
+                        <td>SastaBazaar v1.0</td>
+                    </tr>
+                    <tr>
+                        <td class="text-muted">Laravel</td>
+                        <td>{{ app()->version() }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-muted">PHP</td>
+                        <td>{{ PHP_VERSION }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-muted">Logged in</td>
+                        <td>{{ auth()->user()->name }}</td>
+                    </tr>
                 </table>
             </div>
         </div>

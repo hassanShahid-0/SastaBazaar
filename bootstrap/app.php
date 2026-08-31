@@ -13,7 +13,9 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         // Register custom middleware aliases
         $middleware->alias([
-            'admin' => \App\Http\Middleware\IsAdmin::class,
+            'admin'               => \App\Http\Middleware\IsAdmin::class,
+            'citizen.auth'        => \App\Http\Middleware\CitizenAuth::class,
+            'citizen.notblocked'  => \App\Http\Middleware\CitizenNotBlocked::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

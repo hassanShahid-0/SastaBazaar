@@ -79,9 +79,19 @@
         <a href="{{ route('admin.prices.index') }}" class="{{ request()->routeIs('admin.prices.*') ? 'active' : '' }}">
             <i class="bi bi-tags"></i> Daily Prices
         </a>
-        <div class="nav-label">Complaints</div>
+        <div class="nav-label">Citizens & Complaints</div>
+        <a href="{{ route('admin.citizens.index') }}" class="{{ request()->routeIs('admin.citizens.*') ? 'active' : '' }}">
+            <i class="bi bi-people"></i> Citizens
+        </a>
         <a href="{{ route('admin.complaints.index') }}" class="{{ request()->routeIs('admin.complaints.*') ? 'active' : '' }}">
             <i class="bi bi-chat-square-text"></i> Complaints
+        </a>
+        <div class="nav-label">Marketplace</div>
+        <a href="{{ route('admin.shops.index') }}" class="{{ request()->routeIs('admin.shops.*') ? 'active' : '' }}">
+            <i class="bi bi-shop"></i> Shops
+        </a>
+        <a href="{{ route('admin.orders.index') }}" class="{{ request()->routeIs('admin.orders.*') ? 'active' : '' }}">
+            <i class="bi bi-bag-check"></i> Orders
         </a>
     </nav>
     <div class="sb-footer">

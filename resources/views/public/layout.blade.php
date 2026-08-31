@@ -144,23 +144,81 @@
             <div class="collapse navbar-collapse" id="navPublic">
                 <ul class="navbar-nav ms-auto align-items-lg-center gap-2 my-2 my-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active fw-medium" href="{{ route('home') }}">
+                        <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }} fw-medium" href="{{ route('home') }}">
                             <i class="bi bi-house-door me-1"></i> Today's Prices
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-medium text-danger" href="#">
+                        <a class="nav-link {{ request()->routeIs('marketplace.*') ? 'active' : '' }} fw-medium" href="{{ route('marketplace.index') }}">
+                            <i class="bi bi-shop me-1"></i> Marketplace
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('complaint.*') ? 'active' : '' }} fw-medium text-danger" href="{{ route('complaint.create') }}">
                             <i class="bi bi-exclamation-octagon me-1"></i> Report Overcharging
                         </a>
                     </li>
-                    @auth
+
+                    <!-- Cart Link -->
+                    @php $cartTotalQty = collect(session('cart', []))->sum('quantity'); @endphp
+                    <li class="nav-item">
+                        <a class="nav-link position-relative px-2 {{ request()->routeIs('cart.*') ? 'active' : '' }}" href="{{ route('cart.index') }}" title="Shopping Cart">
+                            <i class="bi bi-cart3 fs-5"></i>
+                            @if($cartTotalQty > 0)
+                                <span class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.65rem;">
+                                    {{ $cartTotalQty }}
+                                </span>
+                            @endif
+                        </a>
+                    </li>
+
+                    <!-- Citizen Auth State -->
+                    @auth('citizen')
+                    <li class="nav-item dropdown ms-lg-2">
+                        <a class="btn btn-outline-success btn-sm rounded-pill px-3 dropdown-toggle d-flex align-items-center gap-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle"></i>
+                            <span>{{ Str::limit(auth('citizen')->user()->name, 12) }}</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 rounded-3">
+                            <li class="dropdown-header small text-muted">Citizen Account</li>
+                            <li>
+                                <a class="dropdown-item small d-flex align-items-center gap-2" href="{{ route('citizen.orders.index') }}">
+                                    <i class="bi bi-clock-history text-primary"></i> My Orders
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item small d-flex align-items-center gap-2" href="{{ route('complaint.create') }}">
+                                    <i class="bi bi-megaphone text-danger"></i> File Complaint
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <form method="POST" action="{{ route('citizen.logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item small d-flex align-items-center gap-2 text-danger">
+                                        <i class="bi bi-box-arrow-right"></i> Citizen Logout
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                    @else
                     <li class="nav-item ms-lg-2">
+                        <a class="btn btn-success btn-sm rounded-pill px-3 text-white" href="{{ route('citizen.login') }}">
+                            <i class="bi bi-person me-1"></i> Citizen Login
+                        </a>
+                    </li>
+                    @endauth
+
+                    <!-- Admin / Official Auth State -->
+                    @auth
+                    <li class="nav-item ms-lg-1">
                         <a class="btn btn-outline-primary btn-sm rounded-pill px-3" href="{{ route('admin.dashboard') }}">
                             <i class="bi bi-speedometer2 me-1"></i> Admin Dashboard
                         </a>
                     </li>
                     @else
-                    <li class="nav-item ms-lg-2">
+                    <li class="nav-item ms-lg-1">
                         <a class="btn btn-outline-secondary btn-sm rounded-pill px-3" href="{{ route('login') }}">
                             <i class="bi bi-box-arrow-in-right me-1"></i> Official Login
                         </a>

@@ -60,33 +60,28 @@
                         <form action="{{ route('complaint.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
-                            <!-- Citizen Info -->
+                            <!-- Citizen Info (auto-filled from account) -->
                             <h6 class="fw-semibold text-muted text-uppercase small mb-3 mt-1 letter-spacing-1">
                                 <i class="bi bi-person-fill me-1"></i> Your Information
+                                <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 ms-2 fw-normal text-capitalize" style="font-size:.7rem;">Auto-filled from your account</span>
                             </h6>
                             <div class="row g-3 mb-4">
                                 <div class="col-md-6">
-                                    <label class="form-label fw-semibold" for="citizen_name">Full Name <span class="text-danger">*</span></label>
+                                    <label class="form-label fw-semibold" for="citizen_name">Full Name</label>
                                     <div class="input-group">
-                                        <span class="input-group-text bg-light border-0"><i class="bi bi-person text-muted"></i></span>
-                                        <input type="text" name="citizen_name" id="citizen_name"
-                                               class="form-control border-0 bg-light @error('citizen_name') is-invalid @enderror"
-                                               value="{{ old('citizen_name') }}" placeholder="e.g. Muhammad Ali" required>
-                                        @error('citizen_name')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                                        <span class="input-group-text bg-light border-0"><i class="bi bi-person text-success"></i></span>
+                                        <input type="text" id="citizen_name"
+                                               class="form-control border-0 bg-light"
+                                               value="{{ $citizen->name }}" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label fw-semibold" for="citizen_phone">
-                                        Phone Number <span class="text-danger">*</span>
-                                        <small class="text-muted fw-normal">(03XXXXXXXXX)</small>
-                                    </label>
+                                    <label class="form-label fw-semibold" for="citizen_phone">Phone Number</label>
                                     <div class="input-group">
-                                        <span class="input-group-text bg-light border-0"><i class="bi bi-telephone text-muted"></i></span>
-                                        <input type="text" name="citizen_phone" id="citizen_phone"
-                                               class="form-control border-0 bg-light @error('citizen_phone') is-invalid @enderror"
-                                               value="{{ old('citizen_phone') }}" placeholder="e.g. 03001234567"
-                                               maxlength="11" required>
-                                        @error('citizen_phone')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                                        <span class="input-group-text bg-light border-0"><i class="bi bi-telephone text-success"></i></span>
+                                        <input type="text" id="citizen_phone"
+                                               class="form-control border-0 bg-light"
+                                               value="{{ $citizen->phone }}" readonly>
                                     </div>
                                 </div>
                             </div>

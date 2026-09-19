@@ -60,7 +60,7 @@
                             <i class="bi bi-telephone me-1"></i>{{ $shop->phone }}
                         </p>
                         <div class="d-flex align-items-center justify-content-between">
-                            <span class="badge bg-info bg-opacity-15 text-info border border-info border-opacity-25 rounded-pill">
+                            <span class="badge bg-info bg-opacity-10 text-info border border-info border-opacity-25 rounded-pill">
                                 <i class="bi bi-box me-1"></i>{{ $shop->listings_count }} items in stock
                             </span>
                             <a href="{{ route('marketplace.shops.show', $shop) }}" class="btn btn-primary btn-sm rounded-pill px-3">

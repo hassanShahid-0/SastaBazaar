@@ -104,7 +104,7 @@
                         </div>
                         <div class="mb-3">
                             <span class="text-muted small d-block">Payment Status:</span>
-                            <span class="badge bg-success bg-opacity-15 text-success border border-success border-opacity-25 mt-1">
+                            <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 mt-1">
                                 <i class="bi bi-check-circle me-1"></i>{{ $order->payment_status }} (Card Payment)
                             </span>
                         </div>

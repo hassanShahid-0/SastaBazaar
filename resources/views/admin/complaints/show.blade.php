@@ -47,9 +47,9 @@
                                 <td class="text-muted fw-medium">Status</td>
                                 <td>
                                     @if($complaint->isPending())
-                                        <span class="badge bg-danger bg-opacity-15 text-danger border border-danger border-opacity-25">Pending</span>
+                                        <span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25">Pending</span>
                                     @else
-                                        <span class="badge bg-success bg-opacity-15 text-success border border-success border-opacity-25">Resolved</span>
+                                        <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25">Resolved</span>
                                     @endif
                                 </td>
                             </tr>

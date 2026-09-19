@@ -51,8 +51,8 @@
                     <!-- Live Card Preview -->
                     <div class="p-4 pb-0">
                         <div class="rounded-4 p-4 mb-4 text-white position-relative overflow-hidden"
-                             style="background:linear-gradient(135deg,#1e1b4b 0%,#4338ca 60%,#6366f1 100%);min-height:180px;">
-                            <div class="position-absolute top-0 end-0 opacity-10" style="font-size:10rem;transform:translate(20%,-20%);">●</div>
+                            style="background:linear-gradient(135deg,#1e1b4b 0%,#4338ca 60%,#6366f1 100%);min-height:180px;">
+                            <div class="position-absolute opacity-25" style="font-size:8rem; top: 10px; right: 40px; transform: translateY(-30%);">●</div>
                             <div class="small opacity-75 mb-3">SastaBazaar Pay</div>
                             <div class="fs-5 fw-bold letter-spacing mb-3" style="letter-spacing:.2em;" x-text="cardNumber || '•••• •••• •••• ••••'"></div>
                             <div class="d-flex justify-content-between small">
@@ -75,35 +75,35 @@
                             <div class="mb-3">
                                 <label class="form-label fw-semibold" for="card_name">Name on Card</label>
                                 <input type="text" id="card_name" class="form-control"
-                                       placeholder="e.g. Muhammad Ali" x-model="name" autocomplete="off">
+                                    placeholder="e.g. Muhammad Ali" x-model="name" autocomplete="off">
                                 <div class="form-text text-muted">Demo only — not stored or charged.</div>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label fw-semibold" for="card_number">Card Number</label>
                                 <input type="text" id="card_number" class="form-control"
-                                       placeholder="1234 5678 9012 3456" maxlength="19"
-                                       x-model="cardNumber"
-                                       @input="cardNumber = $event.target.value.replace(/\D/g,'').replace(/(.{4})/g,'$1 ').trim().slice(0,19)"
-                                       autocomplete="off">
+                                    placeholder="1234 5678 9012 3456" maxlength="19"
+                                    x-model="cardNumber"
+                                    @input="cardNumber = $event.target.value.replace(/\D/g,'').replace(/(.{4})/g,'$1 ').trim().slice(0,19)"
+                                    autocomplete="off">
                             </div>
 
                             <div class="row g-3 mb-4">
                                 <div class="col-6">
                                     <label class="form-label fw-semibold" for="card_expiry">Expiry Date</label>
                                     <input type="text" id="card_expiry" class="form-control"
-                                           placeholder="MM/YY" maxlength="5"
-                                           x-model="expiry"
-                                           @input="expiry = $event.target.value.replace(/\D/g,'').replace(/^(\d{2})(\d)/,'$1/$2').slice(0,5)"
-                                           autocomplete="off">
+                                        placeholder="MM/YY" maxlength="5"
+                                        x-model="expiry"
+                                        @input="expiry = $event.target.value.replace(/\D/g,'').replace(/^(\d{2})(\d)/,'$1/$2').slice(0,5)"
+                                        autocomplete="off">
                                 </div>
                                 <div class="col-6">
                                     <label class="form-label fw-semibold" for="card_cvv">CVV</label>
                                     <input type="text" id="card_cvv" class="form-control"
-                                           placeholder="•••" maxlength="3"
-                                           x-model="cvv"
-                                           @input="cvv = $event.target.value.replace(/\D/g,'').slice(0,3)"
-                                           autocomplete="off">
+                                        placeholder="•••" maxlength="3"
+                                        x-model="cvv"
+                                        @input="cvv = $event.target.value.replace(/\D/g,'').slice(0,3)"
+                                        autocomplete="off">
                                 </div>
                             </div>
 

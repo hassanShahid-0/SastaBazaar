@@ -10,7 +10,7 @@
     </div>
 </section>
 
-<section class="py-5 bg-body-tertiary">
+<section class="py-5 bg-body-tertiary flex-grow-1">
     <div class="container">
         @if(session('success'))
             <div class="alert alert-success alert-dismissible fade show rounded-4 border-0 mb-4" role="alert">
@@ -62,7 +62,7 @@
                                     <span class="badge bg-{{ $badgeClass }}">{{ $order->status }}</span>
                                 </td>
                                 <td class="text-center">
-                                    <span class="badge bg-success bg-opacity-15 text-success border border-success border-opacity-25">
+                                    <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25">
                                         <i class="bi bi-check-circle me-1"></i>{{ $order->payment_status }}
                                     </span>
                                 </td>

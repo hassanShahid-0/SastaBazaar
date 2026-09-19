@@ -18,7 +18,7 @@ class DailyPrice extends Model
 
     protected $casts = [
         'official_price' => 'decimal:2',
-        'active_date' => 'date',
+        'active_date' => 'date:Y-m-d',
     ];
 
     /**

@@ -123,6 +123,21 @@
         .footer-public a:hover {
             color: #a5b4fc;
         }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
     </style>
     @stack('styles')
 </head>
@@ -165,9 +180,9 @@
                         <a class="nav-link position-relative px-2 {{ request()->routeIs('cart.*') ? 'active' : '' }}" href="{{ route('cart.index') }}" title="Shopping Cart">
                             <i class="bi bi-cart3 fs-5"></i>
                             @if($cartTotalQty > 0)
-                                <span class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.65rem;">
-                                    {{ $cartTotalQty }}
-                                </span>
+                            <span class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.65rem;">
+                                {{ $cartTotalQty }}
+                            </span>
                             @endif
                         </a>
                     </li>
@@ -191,7 +206,9 @@
                                     <i class="bi bi-megaphone text-danger"></i> File Complaint
                                 </a>
                             </li>
-                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <li>
                                 <form method="POST" action="{{ route('citizen.logout') }}">
                                     @csrf
@@ -239,8 +256,9 @@
     </nav>
 
     <!-- â•â•â•â• Page Body â•â•â•â• -->
-    @yield('content')
-
+    <main class="d-flex flex-column flex-grow-1">
+        @yield('content')
+    </main>
     <!-- â•â•â•â• Footer â•â•â•â• -->
     <footer class="footer-public">
         <div class="container text-center text-md-start">
